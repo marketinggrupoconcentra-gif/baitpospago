@@ -472,7 +472,6 @@
     }
 
 
-
     .lp-cta-group {
       display: flex;
       flex-direction: column;
@@ -888,18 +887,12 @@
 
     .lp-sams-badge {
       background: #fff;
-      color: #0033a0;
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 9px;
-      font-weight: 800;
-      text-align: center;
+      width: 92px;
+      height: 92px;
+      border-radius: 18px;
+      object-fit: cover;
       flex-shrink: 0;
-      line-height: 1.2;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, .2);
     }
 
     .lp-sams-text {
@@ -1809,7 +1802,8 @@
       <span class="lp-tag">Exclusivo</span>
       <h2 class="lp-h2">Llévate la membresía Sam's Club gratis</h2>
       <div class="lp-sams">
-        <div class="lp-sams-badge">SAM'S<br>CLUB</div>
+        <img class="lp-sams-badge" src="assets/images/sams-logo.jpg" alt="Sam's Club"
+          onerror="this.style.visibility='hidden'">
         <div class="lp-sams-text">
           <h4>Membresía Socio gratis por 1 año</h4>
           <p>Valor real <span class="val">$750 MXN</span>. Precios de mayoreo, gasolinería, farmacia y más.</p>
