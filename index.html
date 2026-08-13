@@ -1,2009 +1,2010 @@
-<meta charset="UTF-8">
-<style>
-  @import url('https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css');
-
-  /* ── RESET & FONTS ── */
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
-  :root {
-    --yellow: #FFCC00;
-    --yellow-dim: rgba(255, 204, 0, .12);
-    --yellow-glow: rgba(255, 204, 0, .28);
-    --bg: #080808;
-    --bg2: #101010;
-    --bg3: #161616;
-    --border: rgba(255, 255, 255, .07);
-    --text: #fff;
-    --muted: #888;
-    --radius: 14px;
-    --radius-sm: 8px;
-    --ease: .22s cubic-bezier(.4, 0, .2, 1);
-  }
-
-  /* ── WRAP ── */
-  .lp-wrap {
-    background: var(--bg);
-    border-radius: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif;
-    overflow: hidden;
-    width: min(100%, 3840px);
-    max-width: 3840px;
-    margin: 0 auto;
-    position: relative;
-  }
-
-  /* ═══════════════════ HERO ═══════════════════ */
-  .lp-hero {
-    background: var(--bg);
-    padding: 34px clamp(20px, 3vw, 90px) 0;
-    display: grid;
-    grid-template-columns: minmax(300px, 520px) minmax(280px, 1fr) minmax(230px, 440px);
-    gap: clamp(18px, 2.5vw, 72px);
-    align-items: end;
-    position: relative;
-    overflow: hidden;
-    min-height: 540px;
-  }
-
-  .lp-hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 55% 45% at 50% 108%, rgba(255, 204, 0, .18) 0%, transparent 70%),
-      radial-gradient(ellipse 35% 25% at 15% 0%, rgba(255, 204, 0, .06) 0%, transparent 60%);
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  /* ── Oferta izquierda ── */
-  .lp-offer {
-    position: relative;
-    z-index: 2;
-    align-self: center;
-    padding-bottom: 28px;
-  }
-
-  /* ── New Commercial Offer Boxes ── */
-  .lp-promo-title {
-    color: #ffffff;
-    font-size: 36px;
-    font-weight: 900;
-    text-transform: uppercase;
-    text-align: center;
-    line-height: 1;
-    margin-bottom: 0px;
-    letter-spacing: -0.5px;
-  }
-
-  .lp-promo-subtitle {
-    color: var(--yellow);
-    font-size: 13.5px;
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 12px;
-    letter-spacing: 0.2px;
-  }
-
-  .lp-promo-box-black {
-    background: #000000;
-    border: 2.5px solid #ffffff;
-    border-radius: 18px;
-    padding: 10px 14px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: 0 auto 10px;
-    max-width: 320px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    position: relative;
-    user-select: none;
-  }
-
-  .lp-promo-box-black .item-left {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .lp-promo-box-black .item-left .de {
-    color: #ffffff;
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 1;
-    margin-bottom: -2px;
-  }
-
-  .lp-promo-box-black .item-left .price-old {
-    color: #ffffff;
-    font-size: 32px;
-    font-weight: 800;
-    line-height: 1;
-    position: relative;
-    display: inline-block;
-  }
-
-  .lp-promo-box-black .item-left .price-old::after {
-    content: "";
-    position: absolute;
-    left: -2px;
-    right: -2px;
-    top: 52%;
-    height: 4px;
-    background: #ff0000;
-    border-radius: 2px;
-  }
-
-  .lp-promo-box-black .item-mid {
-    color: #ffffff;
-    font-size: 26px;
-    font-weight: 500;
-  }
-
-  .lp-promo-box-black .item-right {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .lp-promo-box-black .item-right .price-new {
-    color: var(--yellow);
-    font-size: 54px;
-    font-weight: 900;
-    line-height: 0.9;
-    letter-spacing: -1px;
-  }
-
-  .lp-promo-box-black .item-right .label-mensual {
-    color: #ffffff;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    margin-top: 3px;
-  }
-
-  .lp-promo-box-red {
-    background: #e60000;
-    border: 2.5px solid #ffffff;
-    border-radius: 18px;
-    padding: 10px 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 auto 14px;
-    max-width: 320px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    position: relative;
-    user-select: none;
-  }
-
-  .lp-promo-box-red .content-left {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    flex: 1;
-  }
-
-  .lp-promo-box-red .content-left .obten {
-    color: #ffffff;
-    font-size: 15px;
-    font-weight: 700;
-    line-height: 1;
-  }
-
-  .lp-promo-box-red .content-left .obten .strike-gb {
-    position: relative;
-    display: inline-block;
-    margin-left: 3px;
-  }
-
-  .lp-promo-box-red .content-left .obten .strike-gb::after {
-    content: "";
-    position: absolute;
-    left: -2px;
-    right: -2px;
-    top: 50%;
-    height: 2.5px;
-    background: #ffffff;
-    border-radius: 1px;
-  }
-
-  .lp-promo-box-red .content-left .huge-gb {
-    color: #ffffff;
-    font-size: 54px;
-    font-weight: 900;
-    line-height: 0.95;
-    margin: 2px 0;
-    letter-spacing: -2px;
-  }
-
-  .lp-promo-box-red .content-left .info-sub {
-    color: #ffffff;
-    font-size: 6px;
-    font-weight: 700;
-    line-height: 1.25;
-    letter-spacing: 0.1px;
-    text-transform: uppercase;
-  }
-
-  .lp-promo-box-red .content-right {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-left: 6px;
-  }
-
-  .lp-social-icons {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    align-items: center;
-  }
-
-  .lp-social-row {
-    display: flex;
-    gap: 4px;
-  }
-
-  .lp-social-circle {
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
-    font-size: 12px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
-  }
-
-  .lp-social-circle.wa {
-    background: #25D366;
-  }
-
-  .lp-social-circle.tg {
-    background: #0088cc;
-  }
-
-  .lp-social-circle.fb {
-    background: #1877F2;
-  }
-
-  .lp-social-circle.ms {
-    background: linear-gradient(135deg, #006AFF, #00E4FF);
-  }
-
-  .lp-social-circle.x {
-    background: #000000;
-    border: 0.5px solid rgba(255, 255, 255, 0.2);
-  }
-
-  .lp-social-circle.ig {
-    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-  }
-
-  .lp-social-circle.sc {
-    background: #FFFC00;
-    color: #000000;
-  }
-
-  .lp-ilimitadas-text {
-    color: #ffffff;
-    font-size: 19px;
-    font-weight: 900;
-    margin-top: 4px;
-    line-height: 1;
-    letter-spacing: -0.3px;
-  }
-
-  /* ── Detalles comerciales de la promoción ── */
-  .lp-commercial-extras {
-    max-width: 420px;
-    margin: 0 auto 12px;
-  }
-
-  .lp-commercial-terms {
-    color: rgba(255, 255, 255, .78);
-    font-size: 9px;
-    line-height: 1.35;
-    margin: 0 4px 9px;
-  }
-
-  .lp-commercial-terms strong {
-    color: #fff;
-  }
-
-  .lp-commercial-highlights {
-    display: grid;
-    grid-template-columns: minmax(0, 1.55fr) minmax(116px, .75fr);
-    gap: 8px;
-    margin-bottom: 9px;
-  }
-
-  .lp-duration-card,
-  .lp-membership-card {
-    min-height: 96px;
-    border: 2.5px solid #fff;
-    border-radius: 18px;
-  }
-
-  .lp-duration-card {
-    background: #000;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    line-height: .9;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, .32);
-  }
-
-  .lp-duration-card .during {
-    color: #fff;
-    font-size: 22px;
-    font-weight: 400;
-  }
-
-  .lp-duration-card strong {
-    color: var(--yellow);
-    font-size: 40px;
-    font-weight: 950;
-    letter-spacing: -1.8px;
-    white-space: nowrap;
-  }
-
-  .lp-membership-card {
-    background: linear-gradient(145deg, #16a4ef, #0078ca);
-    padding: 10px 10px 9px;
-    overflow: hidden;
-    box-shadow: 0 12px 30px rgba(0, 92, 176, .25);
-  }
-
-  .lp-membership-card .includes {
-    color: #fff;
-    display: block;
-    font-size: 15px;
-    font-weight: 900;
-    margin-bottom: 7px;
-  }
-
-  .lp-sams-card-art {
-    background: #ad8b29;
-    border-radius: 5px;
-    min-height: 46px;
-    color: #fff;
-    padding: 10px 8px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 7px;
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .08);
-  }
-
-  .lp-sams-card-art .brand {
-    font-size: 11px;
-    font-weight: 800;
-    line-height: 1;
-  }
-
-  .lp-sams-card-art .brand small {
-    display: block;
-    font-size: 5px;
-    margin-top: 2px;
-    opacity: .9;
-  }
-
-  .lp-sams-diamond {
-    width: 22px;
-    height: 22px;
-    border: 5px solid #dce6ef;
-    transform: rotate(45deg);
-    flex: 0 0 auto;
-  }
-
-  .lp-sim-purchase {
-    border: 1.5px solid var(--yellow);
-    border-radius: 18px;
-    padding: 8px 10px 9px;
-    background: linear-gradient(180deg, rgba(255, 204, 0, .08), rgba(255, 204, 0, .16));
-  }
-
-  .lp-sim-price {
-    color: #fff;
-    font-size: 13px;
-    font-weight: 900;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: .2px;
-    margin-bottom: 7px;
-  }
-
-  .lp-sim-price strong {
-    color: var(--yellow);
-    font-size: 18px;
-  }
-
-  .lp-store-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 6px;
-  }
-
-  .lp-store {
-    min-height: 28px;
-    border-radius: 7px;
-    padding: 5px 6px;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: 9px;
-    font-weight: 900;
-    line-height: 1;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, .18);
-  }
-
-  .lp-store-walmart {
-    background: #0875ce;
-  }
-
-  .lp-store-walmart::after {
-    content: "✦";
-    color: var(--yellow);
-    margin-left: 3px;
-  }
-
-  .lp-store-sams {
-    background: #00549a;
-  }
-
-  .lp-store-aurrera {
-    background: linear-gradient(160deg, #3ba52b 0 70%, #e83222 71% 84%, #f4d424 85%);
-  }
-
-  .lp-cta-group {
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-    margin: 0 auto;
-    max-width: 320px;
-    animation: fade-up .5s .6s both;
-  }
-
-  .lp-cta-pri,
-  .lp-cta-wa {
-    border: none;
-    padding: 9px 14px;
-    border-radius: var(--radius-sm);
-    font-size: 10px;
-    font-weight: 700;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    text-transform: uppercase;
-    letter-spacing: .6px;
-    transition: transform var(--ease), box-shadow var(--ease);
-    text-decoration: none;
-  }
-
-  .lp-cta-pri {
-    background: var(--yellow);
-    color: #000;
-  }
-
-  .lp-cta-pri:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px var(--yellow-glow);
-  }
-
-  .lp-cta-wa {
-    background: #25D366;
-    color: #fff;
-  }
-
-  .lp-cta-wa:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(37, 211, 102, .35);
-  }
-
-  @keyframes fade-up {
-    from {
-      opacity: 0;
-      transform: translateY(12px);
+<!DOCTYPE html>
+<html lang="es-MX">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080808">
+  <title>BAIT Pospago | Porta tu número</title>
+  <style>
+    @import url('https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css');
+
+    /* ── RESET & FONTS ── */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* ── Modelo centro ── */
-  .lp-model {
-    position: relative;
-    height: 540px;
-    align-self: end;
-    z-index: 1;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-  }
-
-  .lp-model::before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    transform: translateX(-50%);
-    width: 140%;
-    height: 70%;
-    background: radial-gradient(ellipse at 50% 100%, rgba(255, 204, 0, .42) 0%, rgba(255, 204, 0, .12) 38%, transparent 68%);
-    pointer-events: none;
-    filter: blur(12px);
-    z-index: 0;
-  }
-
-  .lp-model img {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center bottom;
-    display: block;
-    mask-image: linear-gradient(180deg, #000 80%, transparent 100%);
-    -webkit-mask-image: linear-gradient(180deg, #000 80%, transparent 100%);
-    animation: model-in .7s .1s both;
-  }
-
-  @keyframes model-in {
-    from {
-      opacity: 0;
-      transform: scale(.96) translateY(14px);
+    :root {
+      --yellow: #FFCC00;
+      --yellow-dim: rgba(255, 204, 0, .12);
+      --yellow-glow: rgba(255, 204, 0, .28);
+      --bg: #080808;
+      --bg2: #101010;
+      --bg3: #161616;
+      --border: rgba(255, 255, 255, .07);
+      --text: #fff;
+      --muted: #888;
+      --radius: 14px;
+      --radius-sm: 8px;
+      --ease: .22s cubic-bezier(.4, 0, .2, 1);
+      --content-max: 1200px;
     }
 
-    to {
-      opacity: 1;
-      transform: scale(1) translateY(0);
-    }
-  }
-
-  /* ── Formulario derecha ── */
-  .lp-form-mini {
-    background: #fff;
-    border-radius: var(--radius);
-    padding: 18px 15px;
-    color: #111;
-    align-self: center;
-    position: relative;
-    z-index: 2;
-    margin-bottom: 28px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, .5);
-    animation: form-in .6s .35s both;
-  }
-
-  @keyframes form-in {
-    from {
-      opacity: 0;
-      transform: translateX(16px);
+    html {
+      background: var(--bg);
+      overflow-x: hidden;
+      overflow-x: clip;
     }
 
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  .lp-form-mini .step {
-    font-size: 8px;
-    color: #999;
-    text-align: center;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    font-weight: 700;
-  }
-
-  .lp-form-mini .ttl {
-    font-size: 13px;
-    font-weight: 800;
-    text-align: center;
-    margin-bottom: 2px;
-    color: #000;
-    letter-spacing: -.3px;
-  }
-
-  .lp-form-mini .sttl {
-    font-size: 9px;
-    color: #777;
-    text-align: center;
-    margin-bottom: 14px;
-    font-weight: 500;
-  }
-
-  .lp-fake-input {
-    height: 34px;
-    background: #F5F5F5;
-    border: 1.5px solid #EBEBEB;
-    border-radius: var(--radius-sm);
-    margin-bottom: 7px;
-    display: flex;
-    align-items: center;
-    padding: 0 10px;
-    font-size: 10px;
-    color: #aaa;
-    font-weight: 500;
-    transition: border-color .2s;
-    cursor: text;
-  }
-
-  .lp-fake-input:hover {
-    border-color: #ccc;
-  }
-
-  .lp-fake-input .ti {
-    font-size: 13px;
-    margin-right: 7px;
-    color: #bbb;
-  }
-
-  .lp-form-mini button {
-    width: 100%;
-    background: var(--yellow);
-    color: #000;
-    border: none;
-    padding: 10px;
-    border-radius: var(--radius-sm);
-    font-size: 11px;
-    font-weight: 800;
-    margin-top: 5px;
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: .6px;
-    transition: transform var(--ease), box-shadow var(--ease);
-  }
-
-  .lp-form-mini button:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(255, 204, 0, .4);
-  }
-
-  .lp-form-pulse.pulsing {
-    animation: pulse-yellow 1s ease-out 2;
-  }
-
-  @keyframes pulse-yellow {
-    0% {
-      box-shadow: 0 0 0 0 rgba(255, 204, 0, .6);
+    body {
+      min-width: 0;
+      background: var(--bg);
     }
 
-    100% {
-      box-shadow: 0 0 0 16px rgba(255, 204, 0, 0);
-    }
-  }
-
-  /* ═══════════════════ DIVIDER ═══════════════════ */
-  .lp-divider {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--border), transparent);
-  }
-
-  /* ═══════════════════ TRUST BAR ═══════════════════ */
-  .lp-trust {
-    background: var(--bg2);
-    padding: 16px 28px;
-    display: flex;
-    justify-content: space-around;
-    gap: 10px;
-  }
-
-  .lp-trust-item {
-    text-align: center;
-    flex: 1;
-  }
-
-  .lp-trust-item .n {
-    color: var(--yellow);
-    font-size: 20px;
-    font-weight: 900;
-    line-height: 1;
-    letter-spacing: -.5px;
-  }
-
-  .lp-trust-item .l {
-    color: var(--muted);
-    font-size: 8.5px;
-    margin-top: 3px;
-    letter-spacing: .5px;
-    text-transform: uppercase;
-    font-weight: 600;
-  }
-
-  /* ═══════════════════ SECTIONS ═══════════════════ */
-  .lp-section {
-    padding: clamp(28px, 3vw, 84px);
-    border-top: 1px solid var(--border);
-    position: relative;
-  }
-
-  .lp-secnum {
-    position: absolute;
-    top: 14px;
-    right: 16px;
-    font-size: 9px;
-    color: #3a3a3a;
-    letter-spacing: 1px;
-    font-weight: 700;
-    text-transform: uppercase;
-  }
-
-  .lp-tag {
-    display: inline-block;
-    background: var(--yellow-dim);
-    color: var(--yellow);
-    font-size: 9px;
-    font-weight: 700;
-    padding: 3px 10px;
-    border-radius: 20px;
-    letter-spacing: 1px;
-    margin-bottom: 8px;
-    text-transform: uppercase;
-  }
-
-  .lp-h2 {
-    color: var(--text);
-    font-size: 16px;
-    font-weight: 700;
-    margin: 0 0 14px;
-    letter-spacing: -.3px;
-  }
-
-  /* ═══════════════════ BENEFIT CARDS ═══════════════════ */
-  .lp-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px;
-  }
-
-  .lp-card {
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 14px;
-    transition: border-color var(--ease), transform var(--ease);
-  }
-
-  .lp-card:hover {
-    border-color: rgba(255, 204, 0, .22);
-    transform: translateY(-2px);
-  }
-
-  .lp-card .ic {
-    width: 32px;
-    height: 32px;
-    border-radius: 10px;
-    background: var(--yellow-dim);
-    color: var(--yellow);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 9px;
-    font-size: 15px;
-  }
-
-  .lp-card .t {
-    color: var(--text);
-    font-size: 11px;
-    font-weight: 700;
-    margin-bottom: 4px;
-  }
-
-  .lp-card .d {
-    color: var(--muted);
-    font-size: 10px;
-    line-height: 1.5;
-  }
-
-  /* ═══════════════════ SAM'S ═══════════════════ */
-  .lp-sams {
-    background:
-      radial-gradient(circle at 84% 14%, rgba(255, 255, 255, .2), transparent 28%),
-      linear-gradient(135deg, #00143d 0%, #003ec2 58%, #0072ef 100%);
-    border-radius: var(--radius);
-    padding: clamp(28px, 3vw, 80px);
-    display: flex;
-    gap: clamp(24px, 3vw, 70px);
-    align-items: center;
-    border: 1px solid rgba(255, 255, 255, .08);
-    min-height: 210px;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 28px 90px rgba(0, 58, 190, .3);
-  }
-
-  .lp-sams::after {
-    content: "";
-    position: absolute;
-    width: 320px;
-    height: 320px;
-    right: -105px;
-    bottom: -205px;
-    border: 30px solid rgba(255, 255, 255, .08);
-    transform: rotate(45deg);
-    pointer-events: none;
-  }
-
-  .lp-sams-badge {
-    background: #fff;
-    color: #0033a0;
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 9px;
-    font-weight: 800;
-    text-align: center;
-    flex-shrink: 0;
-    line-height: 1.2;
-  }
-
-  .lp-sams-text {
-    flex: 1;
-  }
-
-  .lp-sams-text h4 {
-    color: #fff;
-    font-size: clamp(24px, 2.2vw, 62px);
-    margin-bottom: 10px;
-    font-weight: 950;
-    line-height: 1.02;
-    letter-spacing: -1.5px;
-    text-transform: uppercase;
-    background: linear-gradient(90deg, #fff 0%, #fff 36%, #ffdc52 50%, #fff 64%, #fff 100%);
-    background-size: 220% auto;
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-    animation: sams-shine 4s linear infinite, sams-float 3.2s ease-in-out infinite;
-    transform-origin: left center;
-  }
-
-  @keyframes sams-shine {
-    to {
-      background-position: -220% center;
-    }
-  }
-
-  @keyframes sams-float {
-
-    0%,
-    100% {
-      transform: translateY(0);
+    img,
+    picture,
+    video,
+    canvas {
+      max-width: 100%;
     }
 
-    50% {
-      transform: translateY(-4px);
-    }
-  }
-
-  .lp-sams-text p {
-    color: rgba(255, 255, 255, .7);
-    font-size: clamp(13px, 1vw, 26px);
-    line-height: 1.5;
-  }
-
-  .lp-sams-text .val {
-    color: var(--yellow);
-    font-weight: 700;
-  }
-
-  .lp-sams-cta {
-    background: var(--yellow);
-    color: #000;
-    border: none;
-    padding: 10px 16px;
-    border-radius: var(--radius-sm);
-    font-size: 10px;
-    font-weight: 800;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    flex-shrink: 0;
-    white-space: nowrap;
-    text-transform: uppercase;
-    letter-spacing: .5px;
-    transition: transform var(--ease), box-shadow var(--ease);
-    position: relative;
-    z-index: 1;
-  }
-
-  .lp-sams-cta:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(255, 204, 0, .3);
-  }
-
-  /* ═══════════════════ COMBO ═══════════════════ */
-  .lp-combo {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
-
-  .lp-combo-block {
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 16px;
-  }
-
-  .lp-combo-block .head {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 12px;
-  }
-
-  .lp-combo-block .head .ti {
-    color: var(--yellow);
-    font-size: 16px;
-  }
-
-  .lp-combo-block .head .t {
-    color: var(--text);
-    font-size: 12px;
-    font-weight: 700;
-  }
-
-  .lp-combo-cov-text {
-    color: #bbb;
-    font-size: 11px;
-    line-height: 1.6;
-  }
-
-  .lp-combo-cov-text strong {
-    color: var(--yellow);
-  }
-
-  .lp-combo-steps {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .lp-combo-step {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .lp-combo-step .num {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: var(--yellow);
-    color: #000;
-    font-size: 9px;
-    font-weight: 800;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  .lp-combo-step .txt {
-    color: #ddd;
-    font-size: 11px;
-    font-weight: 600;
-    line-height: 1.3;
-  }
-
-  .lp-combo-step .txt small {
-    color: var(--muted);
-    font-size: 9px;
-    font-weight: 400;
-    display: block;
-  }
-
-  /* ═══════════════════ REASONS ═══════════════════ */
-  .lp-reasons {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  }
-
-  .lp-reason {
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 14px;
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
-    transition: border-color var(--ease);
-  }
-
-  .lp-reason:hover {
-    border-color: rgba(255, 204, 0, .2);
-  }
-
-  .lp-reason .ic {
-    width: 34px;
-    height: 34px;
-    border-radius: 10px;
-    background: var(--yellow-dim);
-    color: var(--yellow);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 17px;
-    flex-shrink: 0;
-  }
-
-  .lp-reason .body .t {
-    color: var(--text);
-    font-size: 11px;
-    font-weight: 700;
-    margin-bottom: 3px;
-  }
-
-  .lp-reason .body .d {
-    color: var(--muted);
-    font-size: 10px;
-    line-height: 1.5;
-  }
-
-  .lp-reason .body .d strong {
-    color: var(--yellow);
-  }
-
-  /* ═══════════════════ FAQ ═══════════════════ */
-  .lp-faq-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    align-items: start;
-  }
-
-  .lp-faq-item {
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    overflow: hidden;
-    cursor: pointer;
-    transition: border-color var(--ease), background var(--ease), transform var(--ease), box-shadow var(--ease);
-  }
-
-  .lp-faq-item:hover {
-    border-color: rgba(255, 204, 0, .25);
-    background: #1a1a1a;
-    transform: translateY(-2px);
-  }
-
-  .lp-faq-item[open] {
-    border-color: rgba(255, 204, 0, .45);
-    background: #191919;
-    box-shadow: 0 14px 35px rgba(0, 0, 0, .24);
-  }
-
-  .lp-faq-item summary {
-    list-style: none;
-    padding: 16px 18px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 14px;
-  }
-
-  .lp-faq-item summary::-webkit-details-marker {
-    display: none;
-  }
-
-  .lp-faq-item .q {
-    color: #f0f0f0;
-    font-size: 12px;
-    font-weight: 750;
-    line-height: 1.4;
-  }
-
-  .lp-faq-item .ti {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: var(--yellow-dim);
-    color: var(--yellow);
-    font-size: 15px;
-    flex-shrink: 0;
-    display: grid;
-    place-items: center;
-    transition: transform .3s ease, background .3s ease;
-  }
-
-  .lp-faq-item[open] .ti {
-    transform: rotate(45deg);
-    background: var(--yellow);
-    color: #000;
-  }
-
-  .lp-faq-answer {
-    color: #aaa;
-    font-size: 11px;
-    line-height: 1.65;
-    padding: 0 18px 18px;
-    animation: faq-answer-in .35s ease both;
-  }
-
-  .lp-faq-answer strong {
-    color: var(--yellow);
-  }
-
-  .lp-faq-answer ul {
-    padding-left: 18px;
-    margin-top: 6px;
-  }
-
-  .lp-faq-answer a {
-    color: var(--yellow);
-    text-decoration: none;
-  }
-
-  @keyframes faq-answer-in {
-    from {
-      opacity: 0;
-      transform: translateY(-8px);
+    img {
+      height: auto;
     }
 
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* ═══════════════════ FINAL CTA ═══════════════════ */
-  .lp-final {
-    background: var(--yellow);
-    padding: 28px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .lp-final::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 60% 80% at 50% 100%, rgba(0, 0, 0, .08) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .lp-final h2 {
-    color: #000;
-    font-size: 20px;
-    font-weight: 900;
-    margin-bottom: 6px;
-    text-transform: uppercase;
-    letter-spacing: -.4px;
-    position: relative;
-  }
-
-  .lp-final p {
-    color: rgba(0, 0, 0, .65);
-    font-size: 11px;
-    margin-bottom: 16px;
-    font-weight: 600;
-    position: relative;
-  }
-
-  .lp-final button {
-    background: #000;
-    color: var(--yellow);
-    border: none;
-    padding: 13px 30px;
-    border-radius: var(--radius-sm);
-    font-size: 13px;
-    font-weight: 800;
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: .5px;
-    position: relative;
-    transition: transform var(--ease), box-shadow var(--ease);
-  }
-
-  .lp-final button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, .3);
-  }
-
-  /* ═══════════════════ FOOTER ═══════════════════ */
-  .lp-footer {
-    background: #050505;
-    border-top: 1px solid var(--border);
-    padding: 20px clamp(20px, 3vw, 90px);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 18px;
-    color: #777;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: .35px;
-  }
-
-  .lp-footer-terms {
-    color: #b5b5b5;
-  }
-
-  .lp-footer-brand {
-    color: var(--yellow);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-
-  /* ═══════════════════ FLOATING WHATSAPP ═══════════════════ */
-  .lp-wa-float {
-    position: fixed;
-    bottom: 22px;
-    right: 22px;
-    width: 54px;
-    height: 54px;
-    background: #25D366;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 6px 24px rgba(37, 211, 102, .5);
-    cursor: pointer;
-    z-index: 9999;
-    transition: transform var(--ease), box-shadow var(--ease);
-    animation: wa-bounce 2.8s 2s ease-in-out infinite;
-    text-decoration: none;
-  }
-
-  .lp-wa-float:hover {
-    transform: scale(1.1);
-    box-shadow: 0 10px 36px rgba(37, 211, 102, .65);
-    animation: none;
-  }
-
-  .lp-wa-float .ti {
-    color: #fff;
-    font-size: 28px;
-  }
-
-  .lp-wa-float::after {
-    content: "";
-    position: absolute;
-    inset: -4px;
-    border-radius: 50%;
-    border: 2px solid #25D366;
-    animation: ring-pulse 2.2s 2.2s ease-out infinite;
-    opacity: 0;
-  }
-
-  @keyframes wa-bounce {
-
-    0%,
-    100% {
-      transform: translateY(0);
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
     }
 
-    50% {
-      transform: translateY(-7px);
-    }
-  }
-
-  @keyframes ring-pulse {
-    0% {
-      transform: scale(1);
-      opacity: .7;
+    button {
+      font: inherit;
     }
 
-    100% {
-      transform: scale(1.55);
-      opacity: 0;
-    }
-  }
-
-  /* ═══════════════════ SCROLL REVEAL ═══════════════════ */
-  .reveal {
-    opacity: 0;
-    transform: translateY(18px);
-    transition: opacity .55s var(--ease), transform .55s var(--ease);
-  }
-
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* ═══════════════════ RESPONSIVE ═══════════════════ */
-  @media (min-width: 1100px) {
-    .lp-promo-title {
-      font-size: 48px;
+    /* ── WRAP ── */
+    .lp-wrap {
+      background: var(--bg);
+      border-radius: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif;
+      overflow: hidden;
+      overflow: clip;
+      width: 100%;
+      max-width: none;
+      margin: 0 auto;
+      position: relative;
     }
 
-    .lp-promo-subtitle {
-      font-size: 16px;
-      margin-bottom: 18px;
-    }
-
-    .lp-promo-box-black,
-    .lp-promo-box-red,
-    .lp-commercial-extras,
-    .lp-cta-group {
-      max-width: 480px;
-    }
-
-    .lp-form-mini {
-      padding: 28px 24px;
-    }
-
-    .lp-form-mini .ttl {
-      font-size: 19px;
-    }
-
-    .lp-fake-input {
-      height: 44px;
-      font-size: 12px;
-    }
-
-    .lp-form-mini button {
-      padding: 14px;
-      font-size: 12px;
-    }
-
-    .lp-h2 {
-      font-size: clamp(24px, 1.6vw, 46px);
-      margin-bottom: 24px;
-    }
-
-    .lp-card,
-    .lp-reason,
-    .lp-combo-block {
-      padding: clamp(22px, 1.5vw, 40px);
-    }
-
-    .lp-sams-badge {
-      width: clamp(100px, 8vw, 190px);
-      height: clamp(100px, 8vw, 190px);
-      font-size: clamp(15px, 1.2vw, 29px);
-      box-shadow: 0 16px 38px rgba(0, 0, 0, .25);
-    }
-
-    .lp-sams-cta {
-      padding: clamp(15px, 1.2vw, 25px) clamp(22px, 1.8vw, 42px);
-      font-size: clamp(12px, .85vw, 20px);
-    }
-
-    .lp-faq-item .q {
-      font-size: clamp(13px, .9vw, 21px);
-    }
-
-    .lp-faq-answer {
-      font-size: clamp(12px, .78vw, 18px);
-    }
-  }
-
-  @media (min-width: 1800px) {
+    /* ═══════════════════ HERO ═══════════════════ */
     .lp-hero {
-      min-height: 760px;
-      grid-template-columns: minmax(520px, 650px) minmax(700px, 1fr) minmax(440px, 560px);
+      background: var(--bg);
+      padding: 34px clamp(20px, 3vw, 90px) 0;
+      display: grid;
+      grid-template-columns: minmax(300px, 520px) minmax(280px, 1fr) minmax(230px, 440px);
+      gap: clamp(18px, 2.5vw, 72px);
+      align-items: end;
+      position: relative;
+      overflow: hidden;
+      min-height: 540px;
+      width: 100%;
+      max-width: var(--content-max);
+      margin-inline: auto;
     }
 
-    .lp-model {
-      height: 760px;
+    .lp-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 55% 45% at 50% 108%, rgba(255, 204, 0, .18) 0%, transparent 70%),
+        radial-gradient(ellipse 35% 25% at 15% 0%, rgba(255, 204, 0, .06) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
     }
 
-    .lp-promo-title {
-      font-size: 68px;
-    }
-
-    .lp-promo-subtitle {
-      font-size: 22px;
-    }
-
-    .lp-promo-box-black,
-    .lp-promo-box-red,
-    .lp-commercial-extras,
-    .lp-cta-group {
-      max-width: 600px;
-    }
-
-    .lp-promo-box-black,
-    .lp-promo-box-red,
-    .lp-commercial-extras {
-      transform: scale(1.12);
-      margin-top: 22px;
-      margin-bottom: 28px;
-    }
-
-    .lp-form-mini {
-      padding: 40px 34px;
-      margin-bottom: 56px;
-    }
-
-    .lp-form-mini .ttl {
-      font-size: 28px;
-    }
-
-    .lp-form-mini .sttl {
-      font-size: 16px;
-    }
-
-    .lp-fake-input {
-      height: 58px;
-      font-size: 16px;
-    }
-
-    .lp-form-mini button {
-      padding: 18px;
-      font-size: 16px;
-    }
-
-    .lp-trust {
-      padding: 36px 90px;
-    }
-
-    .lp-trust-item .n {
-      font-size: 42px;
-    }
-
-    .lp-trust-item .l {
-      font-size: 15px;
-    }
-
-    .lp-sams {
-      min-height: 340px;
-    }
-
-    .lp-sams-text p {
-      max-width: 1400px;
-    }
-
-    .lp-final {
-      padding: 64px;
-    }
-
-    .lp-final h2 {
-      font-size: 46px;
-    }
-
-    .lp-final p {
-      font-size: 21px;
-    }
-
-    .lp-final button {
-      padding: 20px 46px;
-      font-size: 20px;
-    }
-  }
-
-  @media (min-width: 2500px) {
-    .lp-hero {
-      min-height: 920px;
-      grid-template-columns: minmax(650px, 820px) minmax(900px, 1fr) minmax(560px, 700px);
-    }
-
-    .lp-model {
-      height: 920px;
-    }
-
-    .lp-promo-title {
-      font-size: 86px;
-    }
-
-    .lp-promo-subtitle {
-      font-size: 28px;
-    }
-
-    .lp-section {
-      padding-top: 100px;
-      padding-bottom: 100px;
-    }
-
-    .lp-sams {
-      min-height: 430px;
-      border-radius: 28px;
-    }
-
-    .lp-faq-grid {
-      gap: 24px;
-    }
-
-    .lp-faq-item summary {
-      padding: 28px 32px;
-    }
-
-    .lp-faq-answer {
-      padding: 0 32px 30px;
-    }
-  }
-
-  @media (max-width: 960px) {
-    .lp-hero {
-      grid-template-columns: 1fr;
-      grid-template-rows: auto auto auto;
-      padding: 22px 16px 0;
-      min-height: unset;
-    }
-
+    /* ── Oferta izquierda ── */
     .lp-offer {
-      padding-bottom: 0;
-      order: 1;
-      align-self: auto;
+      position: relative;
+      z-index: 2;
+      align-self: center;
+      padding-bottom: 28px;
+    }
+
+    /* ── New Commercial Offer Boxes ── */
+    .lp-promo-title {
+      color: #ffffff;
+      font-size: clamp(28px, 8.5vw, 48px);
+      font-weight: 900;
+      text-transform: uppercase;
+      text-align: center;
+      line-height: 1;
+      margin-bottom: 0px;
+      letter-spacing: -0.5px;
+    }
+
+    .lp-promo-subtitle {
+      color: var(--yellow);
+      font-size: 13.5px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 12px;
+      letter-spacing: 0.2px;
+    }
+
+    .lp-promo-box-black {
+      background: #ffffff;
+      border: 2.5px solid #ffffff;
+      border-radius: 18px;
+      padding: 10px 14px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin: 0 auto 10px;
+      max-width: 320px;
+      box-shadow: 0 12px 34px rgba(0, 0, 0, .42);
+      position: relative;
+      user-select: none;
+    }
+
+    .lp-promo-box-black .item-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .lp-promo-box-black .item-left .de {
+      color: #000000;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1;
+      margin-bottom: -2px;
+    }
+
+    .lp-promo-box-black .item-left .price-old {
+      color: #000000;
+      font-size: 32px;
+      font-weight: 800;
+      line-height: 1;
+      position: relative;
+      display: inline-block;
+    }
+
+    .lp-promo-box-black .item-left .price-old::after {
+      content: "";
+      position: absolute;
+      left: -2px;
+      right: -2px;
+      top: 52%;
+      height: 4px;
+      background: #ff0000;
+      border-radius: 2px;
+    }
+
+    .lp-promo-box-black .item-mid {
+      color: #000000;
+      font-size: 26px;
+      font-weight: 500;
+    }
+
+    .lp-promo-box-black .item-right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .lp-promo-box-black .item-right .price-new {
+      color: #000000;
+      font-size: 54px;
+      font-weight: 900;
+      line-height: 0.9;
+      letter-spacing: -1px;
+    }
+
+    .lp-promo-box-black .item-right .label-mensual {
+      color: #000000;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-top: 3px;
+    }
+
+    .lp-promo-box-red {
+      background: #e60000;
+      border: 2.5px solid #ffffff;
+      border-radius: 18px;
+      padding: 10px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 auto 14px;
+      max-width: 320px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      position: relative;
+      user-select: none;
+    }
+
+    .lp-promo-box-red .content-left {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      flex: 1;
+    }
+
+    .lp-promo-box-red .content-left .obten {
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .lp-promo-box-red .content-left .obten .strike-gb {
+      position: relative;
+      display: inline-block;
+      margin-left: 3px;
+    }
+
+    .lp-promo-box-red .content-left .obten .strike-gb::after {
+      content: "";
+      position: absolute;
+      left: -2px;
+      right: -2px;
+      top: 50%;
+      height: 2.5px;
+      background: #ffffff;
+      border-radius: 1px;
+    }
+
+    .lp-promo-box-red .content-left .huge-gb {
+      color: #ffffff;
+      font-size: 54px;
+      font-weight: 900;
+      line-height: 0.95;
+      margin: 2px 0;
+      letter-spacing: -2px;
+    }
+
+    .lp-promo-box-red .content-left .info-sub {
+      color: #ffffff;
+      font-size: 6px;
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: 0.1px;
+      text-transform: uppercase;
+    }
+
+    .lp-promo-box-red .content-right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-left: 6px;
+    }
+
+    .lp-social-icons {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      align-items: center;
+    }
+
+    .lp-social-row {
+      display: flex;
+      gap: 4px;
+    }
+
+    .lp-social-circle {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 12px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
+    }
+
+    .lp-social-circle.wa {
+      background: #25D366;
+    }
+
+    .lp-social-circle.tg {
+      background: #0088cc;
+    }
+
+    .lp-social-circle.fb {
+      background: #1877F2;
+    }
+
+    .lp-social-circle.ms {
+      background: linear-gradient(135deg, #006AFF, #00E4FF);
+    }
+
+    .lp-social-circle.x {
+      background: #000000;
+      border: 0.5px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .lp-social-circle.ig {
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    }
+
+    .lp-social-circle.sc {
+      background: #FFFC00;
+      color: #000000;
+    }
+
+    .lp-ilimitadas-text {
+      color: #ffffff;
+      font-size: 19px;
+      font-weight: 900;
+      margin-top: 4px;
+      line-height: 1;
+      letter-spacing: -0.3px;
+    }
+
+    /* ── Detalles comerciales de la promoción ── */
+    .lp-commercial-extras {
+      max-width: 420px;
+      margin: 0 auto 12px;
     }
 
     .lp-commercial-terms {
-      font-size: 10px;
+      color: rgba(255, 255, 255, .78);
+      font-size: 9px;
+      line-height: 1.35;
+      margin: 0 4px 9px;
     }
 
-    .lp-model {
-      height: 260px;
-      order: 2;
-    }
-
-    .lp-form-mini {
-      margin-bottom: 22px;
-      order: 3;
-      align-self: auto;
-    }
-
-    .lp-grid {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .lp-combo {
-      grid-template-columns: 1fr;
-    }
-
-    .lp-reasons {
-      grid-template-columns: 1fr;
-    }
-
-    .lp-faq-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .lp-trust {
-      flex-wrap: wrap;
-    }
-
-    .lp-trust-item {
-      min-width: 40%;
-    }
-
-    .lp-sams {
-      flex-direction: column;
-      text-align: center;
-      min-height: unset;
-    }
-
-    .lp-cta-group {
-      flex-direction: row;
-      flex-wrap: wrap;
-    }
-
-    .lp-wa-float {
-      bottom: 16px;
-      right: 16px;
-      width: 48px;
-      height: 48px;
-    }
-
-    .lp-wa-float .ti {
-      font-size: 24px;
-    }
-
-    .lp-footer {
-      flex-direction: column;
-      text-align: center;
-      padding: 18px 16px;
-      gap: 8px;
-    }
-  }
-
-  @media (max-width: 400px) {
-    .lp-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .lp-hero {
-      padding: 18px 12px 0;
-    }
-
-    .lp-section {
-      padding: 18px 14px;
-    }
-
-    .lp-headline .big {
-      font-size: 16px;
+    .lp-commercial-terms strong {
+      color: #fff;
     }
 
     .lp-commercial-highlights {
-      grid-template-columns: 1.4fr 1fr;
+      display: grid;
+      grid-template-columns: minmax(0, 1.55fr) minmax(116px, .75fr);
+      gap: 8px;
+      margin-bottom: 9px;
+    }
+
+    .lp-duration-card,
+    .lp-membership-card {
+      min-height: 96px;
+      border: 2.5px solid #fff;
+      border-radius: 18px;
+    }
+
+    .lp-duration-card {
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      line-height: .9;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, .32);
     }
 
     .lp-duration-card .during {
-      font-size: 18px;
+      color: #fff;
+      font-size: 22px;
+      font-weight: 400;
     }
 
     .lp-duration-card strong {
-      font-size: 32px;
+      color: var(--yellow);
+      font-size: 40px;
+      font-weight: 950;
+      letter-spacing: -1.8px;
+      white-space: nowrap;
+    }
+
+    .lp-membership-card {
+      background: linear-gradient(145deg, #16a4ef, #0078ca);
+      padding: 10px 10px 9px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(0, 92, 176, .25);
+    }
+
+    .lp-membership-card .includes {
+      color: #fff;
+      display: block;
+      font-size: 15px;
+      font-weight: 900;
+      margin-bottom: 7px;
+    }
+
+    .lp-membership-image {
+      width: 150%;
+      height: 100px;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+      border-radius: 5px;
+    }
+
+    .lp-sim-purchase {
+      border: 1.5px solid var(--yellow);
+      border-radius: 18px;
+      padding: 8px 10px 9px;
+      background: linear-gradient(180deg, rgba(255, 204, 0, .08), rgba(255, 204, 0, .16));
+    }
+
+    .lp-sim-price {
+      color: #fff;
+      font-size: 13px;
+      font-weight: 900;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: .2px;
+      margin-bottom: 7px;
+    }
+
+    .lp-sim-price strong {
+      color: var(--yellow);
+      font-size: 18px;
+    }
+
+    .lp-store-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 6px;
     }
 
     .lp-store {
+      min-height: 28px;
+      border-radius: 7px;
+      padding: 5px 6px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, .18);
+    }
+
+    .lp-store img {
+      display: block;
+      width: 100%;
+      max-width: 92px;
+      height: 40px;
+      object-fit: contain;
+    }
+
+
+
+    .lp-cta-group {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin: 0 auto;
+      width: 100%;
+      max-width: 420px;
+      animation: fade-up .5s .6s both;
+    }
+
+    .lp-cta-pri,
+    .lp-cta-wa {
+      border: none;
+      width: 100%;
+      min-width: 220px;
+      min-height: 50px;
+      padding: 14px 24px;
+      border-radius: 12px;
+      font-size: clamp(12px, 1vw, 15px);
+      font-weight: 850;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      text-transform: uppercase;
+      letter-spacing: .6px;
+      transition: transform var(--ease), box-shadow var(--ease), filter var(--ease);
+      text-decoration: none;
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, .28);
+      animation: lp-soft-pulse 2.8s .8s ease-in-out infinite;
+    }
+
+    .lp-cta-pri {
+      background: var(--yellow);
+      color: #000;
+      --cta-pulse: rgba(255, 204, 0, .38);
+    }
+
+    .lp-cta-pri:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px var(--yellow-glow);
+      filter: brightness(1.06);
+    }
+
+    .lp-cta-wa {
+      background: #25D366;
+      color: #fff;
+      --cta-pulse: rgba(37, 211, 102, .4);
+    }
+
+    .lp-cta-wa:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(37, 211, 102, .35);
+      filter: brightness(1.06);
+    }
+
+    @keyframes lp-soft-pulse {
+
+      0%,
+      100% {
+        box-shadow: 0 8px 20px rgba(0, 0, 0, .25), 0 0 0 0 var(--cta-pulse);
+      }
+
+      50% {
+        box-shadow: 0 12px 30px rgba(0, 0, 0, .28), 0 0 0 7px transparent;
+      }
+    }
+
+    .lp-cta-pri:hover,
+    .lp-cta-wa:hover,
+    .lp-sams-cta:hover,
+    .lp-final button:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes fade-up {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ── Modelo centro ── */
+    .lp-model {
+      position: relative;
+      height: 540px;
+      align-self: end;
+      z-index: 1;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    .lp-model::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: 140%;
+      height: 70%;
+      background: radial-gradient(ellipse at 50% 100%, rgba(255, 204, 0, .42) 0%, rgba(255, 204, 0, .12) 38%, transparent 68%);
+      pointer-events: none;
+      filter: blur(12px);
+      z-index: 0;
+    }
+
+    .lp-model img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center bottom;
+      display: block;
+      mask-image: linear-gradient(180deg, #000 80%, transparent 100%);
+      -webkit-mask-image: linear-gradient(180deg, #000 80%, transparent 100%);
+      animation: model-in .7s .1s both;
+    }
+
+    @keyframes model-in {
+      from {
+        opacity: 0;
+        transform: scale(.96) translateY(14px);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    /* ── Formulario derecha ── */
+    .lp-form-mini {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 18px 15px;
+      color: #111;
+      align-self: center;
+      position: relative;
+      z-index: 2;
+      margin-bottom: 28px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .5);
+      animation: form-in .6s .35s both;
+    }
+
+    @keyframes form-in {
+      from {
+        opacity: 0;
+        transform: translateX(16px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .lp-form-mini .step {
       font-size: 8px;
+      color: #999;
+      text-align: center;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      font-weight: 700;
     }
-  }
-</style>
 
-<!-- ══ FLOATING WHATSAPP ══ -->
-<a class="lp-wa-float" href="https://wa.me/521TUNUMERO" target="_blank" rel="noopener"
-  aria-label="Contactar por WhatsApp">
-  <i class="ti ti-brand-whatsapp"></i>
-</a>
-
-<div class="lp-wrap">
-
-  <!-- ══════════════ HERO ══════════════ -->
-  <div class="lp-hero" id="lp-hero">
-
-    <!-- COL 1: OFERTA -->
-    <div class="lp-offer">
-      <h2 class="lp-promo-title">POSPAGO</h2>
-      <p class="lp-promo-subtitle">es un plan con libertad total.</p>
-
-      <!-- Caja Negra: de $249 a $199 mensuales -->
-      <div class="lp-promo-box-black">
-        <div class="item-left">
-          <span class="de">de</span>
-          <span class="price-old">$249</span>
-        </div>
-        <div class="item-mid">a</div>
-        <div class="item-right">
-          <span class="price-new">$199</span>
-          <span class="label-mensual">mensuales</span>
-        </div>
-      </div>
-
-      <!-- Caja Roja: Obtén 14 GB, 38 GB, ilimitadas con redes sociales -->
-      <div class="lp-promo-box-red">
-        <div class="content-left">
-          <span class="obten">Obtén <span class="strike-gb">14 GB</span></span>
-          <span class="huge-gb">38 GB</span>
-          <span class="info-sub">Llamadas y SMS incluidos en México.<br>En EUA y Canadá: 750 min y 500 SMS.</span>
-        </div>
-        <div class="content-right">
-          <div class="lp-social-icons">
-            <div class="lp-social-row">
-              <span class="lp-social-circle wa"><i class="ti ti-brand-whatsapp"></i></span>
-              <span class="lp-social-circle tg"><i class="ti ti-brand-telegram"></i></span>
-              <span class="lp-social-circle fb"><i class="ti ti-brand-facebook"></i></span>
-              <span class="lp-social-circle ms"><i class="ti ti-brand-messenger"></i></span>
-            </div>
-            <div class="lp-social-row">
-              <span class="lp-social-circle x"><i class="ti ti-brand-x"></i></span>
-              <span class="lp-social-circle ig"><i class="ti ti-brand-instagram"></i></span>
-              <span class="lp-social-circle sc"><i class="ti ti-brand-snapchat"></i></span>
-            </div>
-          </div>
-          <span class="lp-ilimitadas-text">ilimitadas</span>
-        </div>
-      </div>
-
-      <div class="lp-commercial-extras">
-        <p class="lp-commercial-terms">
-          Este plan cuenta con pago recurrente mes a mes, sin plazos forzosos. El pago se realiza 30 días después de
-          la activación. Puedes pagar en cajas de Walmart, Bodega Aurrerá o Sam’s Club indicando tu plan pospago y
-          número de teléfono. <strong>NO APLICA PARA RECARGAS.</strong>
-        </p>
-
-        <div class="lp-commercial-highlights">
-          <div class="lp-duration-card">
-            <span class="during">durante</span>
-            <strong>12 meses</strong>
-          </div>
-          <div class="lp-membership-card">
-            <span class="includes">Incluye:</span>
-            <div class="lp-sams-card-art" aria-label="Membresía Sam's Club Socio Benefits">
-              <span class="brand">sam’s club<small>Socio Benefits</small></span>
-              <span class="lp-sams-diamond" aria-hidden="true"></span>
-            </div>
-          </div>
-        </div>
-
-        <div class="lp-sim-purchase">
-          <div class="lp-sim-price">Obtén tu SIM <strong>por $95</strong> en</div>
-          <div class="lp-store-list" aria-label="Tiendas participantes">
-            <span class="lp-store lp-store-walmart">Walmart</span>
-            <span class="lp-store lp-store-sams">sam’s club ◇</span>
-            <span class="lp-store lp-store-aurrera">Bodega Aurrerá</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="lp-cta-group">
-        <button class="lp-cta-pri" onclick="lpScrollToForm()">
-          <i class="ti ti-arrow-right"></i>Portar ahora
-        </button>
-        <a class="lp-cta-wa" href="https://wa.me/521TUNUMERO" target="_blank" rel="noopener">
-          <i class="ti ti-brand-whatsapp"></i>WhatsApp
-        </a>
-      </div>
-    </div>
-
-    <!-- COL 2: MODELO (imagen al centro) -->
-    <div class="lp-model">
-
-      <img src="assets/images/faisy-bait.png"
-        onerror="this.src='data:image/jpeg;base64,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'"
-        alt="Modelo Bait" />
-    </div>
-
-    <!-- COL 3: FORMULARIO -->
-    <div class="lp-form-mini lp-form-pulse" id="lp-form">
-      <div class="step">Paso 1 de 3</div>
-      <div class="ttl">Cámbiate ahora</div>
-      <div class="sttl">Toma menos de 2 minutos</div>
-      <div class="lp-fake-input"><i class="ti ti-phone"></i>Número a portar</div>
-      <div class="lp-fake-input"><i class="ti ti-phone-check"></i>Confirmar número</div>
-      <div class="lp-fake-input"><i class="ti ti-key"></i>NIP (SMS al 051)</div>
-      <button>Continuar →</button>
-    </div>
-
-  </div><!-- /hero -->
-
-  <div class="lp-divider"></div>
-
-  <!-- ══ TRUST BAR ══ -->
-  <div class="lp-trust reveal">
-    <div class="lp-trust-item">
-      <div class="n">+5M</div>
-      <div class="l">Usuarios Bait</div>
-    </div>
-    <div class="lp-trust-item">
-      <div class="n">98%</div>
-      <div class="l">Cobertura</div>
-    </div>
-    <div class="lp-trust-item">
-      <div class="n">4.6★</div>
-      <div class="l">Calificación</div>
-    </div>
-    <div class="lp-trust-item">
-      <div class="n">$0</div>
-      <div class="l">Contratos</div>
-    </div>
-  </div>
-
-  <!-- ══ BENEFICIOS ══ -->
-  <div class="lp-section reveal">
-    <div class="lp-secnum">02 · BENEFICIOS</div>
-    <span class="lp-tag">Qué te llevas</span>
-    <h2 class="lp-h2">Más datos. Menos precio. Cero amarres.</h2>
-    <div class="lp-grid">
-      <div class="lp-card">
-        <div class="ic"><i class="ti ti-wifi"></i></div>
-        <div class="t">38 GB de datos</div>
-        <div class="d">+20 GB extra los primeros 3 meses</div>
-      </div>
-      <div class="lp-card">
-        <div class="ic"><i class="ti ti-brand-instagram"></i></div>
-        <div class="t">Redes ilimitadas</div>
-        <div class="d">WhatsApp, FB, IG, TikTok sin gastar datos</div>
-      </div>
-      <div class="lp-card">
-        <div class="ic"><i class="ti ti-phone"></i></div>
-        <div class="t">Llamadas y SMS</div>
-        <div class="d">Ilimitados en MX, EE.UU. y Canadá</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ══ SAM'S ══ -->
-  <div class="lp-section reveal">
-    <div class="lp-secnum">03 · BONUS</div>
-    <span class="lp-tag">Exclusivo</span>
-    <h2 class="lp-h2">Llévate la membresía Sam's Club gratis</h2>
-    <div class="lp-sams">
-      <div class="lp-sams-badge">SAM'S<br>CLUB</div>
-      <div class="lp-sams-text">
-        <h4>Membresía Socio gratis por 1 año</h4>
-        <p>Valor real <span class="val">$750 MXN</span>. Precios de mayoreo, gasolinería, farmacia y más.</p>
-      </div>
-      <button class="lp-sams-cta" onclick="lpScrollToForm()">Cámbiate ahora <i class="ti ti-arrow-right"></i></button>
-    </div>
-  </div>
-
-  <!-- ══ COMBO ══ -->
-  <div class="lp-section reveal">
-    <div class="lp-secnum">04 · PROCESO</div>
-    <div class="lp-combo">
-      <div class="lp-combo-block">
-        <div class="head"><i class="ti ti-shield-check"></i><span class="t">Cobertura nacional</span></div>
-        <p class="lp-combo-cov-text">Operamos sobre <strong>red Movistar</strong> con <strong>98% de cobertura</strong>
-          y 4G LTE en todas las ciudades.</p>
-      </div>
-      <div class="lp-combo-block">
-        <div class="head"><i class="ti ti-clock"></i><span class="t">Cámbiate en 3 pasos</span></div>
-        <div class="lp-combo-steps">
-          <div class="lp-combo-step">
-            <div class="num">1</div>
-            <div class="txt">Solicita tu NIP<small>SMS al 051</small></div>
-          </div>
-          <div class="lp-combo-step">
-            <div class="num">2</div>
-            <div class="txt">Llena el formulario<small>Menos de 2 min</small></div>
-          </div>
-          <div class="lp-combo-step">
-            <div class="num">3</div>
-            <div class="txt">Recoge tu SIM<small>Walmart, Bodega o Sam's</small></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ══ RAZONES ══ -->
-  <div class="lp-section reveal">
-    <div class="lp-secnum">05 · RAZONES</div>
-    <span class="lp-tag">Por qué cambiarte</span>
-    <h2 class="lp-h2">¿Por qué seguir pagando de más?</h2>
-    <div class="lp-reasons">
-      <div class="lp-reason">
-        <div class="ic"><i class="ti ti-currency-dollar"></i></div>
-        <div class="body">
-          <div class="t">Pagas hasta 50% menos</div>
-          <div class="d">Tu plan actual cuesta el doble por <strong>los mismos GB</strong>.</div>
-        </div>
-      </div>
-      <div class="lp-reason">
-        <div class="ic"><i class="ti ti-lock-open"></i></div>
-        <div class="body">
-          <div class="t">Cero contratos forzosos</div>
-          <div class="d">Te vas <strong>cuando quieras</strong>, sin penalizaciones.</div>
-        </div>
-      </div>
-      <div class="lp-reason">
-        <div class="ic"><i class="ti ti-antenna"></i></div>
-        <div class="body">
-          <div class="t">Misma cobertura nacional</div>
-          <div class="d">Red Movistar. <strong>Cero sacrificio</strong> en señal.</div>
-        </div>
-      </div>
-      <div class="lp-reason">
-        <div class="ic"><i class="ti ti-gift"></i></div>
-        <div class="body">
-          <div class="t">Sam's Club gratis incluido</div>
-          <div class="d">Ahorra <strong>$750 al año</strong> solo por cambiarte.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ══ FAQ ══ -->
-  <div class="lp-section reveal">
-    <div class="lp-secnum">06 · DUDAS</div>
-    <span class="lp-tag">Preguntas frecuentes</span>
-    <h2 class="lp-h2">Todo lo que necesitas saber para unirte a Bait</h2>
-    <div class="lp-faq-grid">
-      <details class="lp-faq-item">
-        <summary><span class="q">¿Qué es la portabilidad?</span><i class="ti ti-plus"></i></summary>
-        <div class="lp-faq-answer">Trae tu número a Bait sin costo y consérvalo.</div>
-      </details>
-
-      <details class="lp-faq-item">
-        <summary><span class="q">¿Cómo hago la portabilidad?</span><i class="ti ti-plus"></i></summary>
-        <div class="lp-faq-answer">Regístrate, recibe tu cupón, recoge tu SIM, espera 24 horas, activa tu línea, instala
-          la app Mi BAIT y listo.</div>
-      </details>
-
-      <details class="lp-faq-item">
-        <summary><span class="q">¿Me quedaré sin línea?</span><i class="ti ti-plus"></i></summary>
-        <div class="lp-faq-answer">Sí. Durante la noche se lleva a cabo el proceso de portabilidad y, al día siguiente,
-          se realiza el reemplazo para que vuelvas a tener línea.</div>
-      </details>
-
-      <details class="lp-faq-item">
-        <summary><span class="q">Beneficios principales</span><i class="ti ti-plus"></i></summary>
-        <div class="lp-faq-answer">
-          <ul>
-            <li>Conservas tu número.</li>
-            <li>7 redes sociales ilimitadas.</li>
-            <li>Promoción por 12 meses.</li>
-            <li>Cobertura nacional.</li>
-          </ul>
-        </div>
-      </details>
-
-      <details class="lp-faq-item">
-        <summary><span class="q">¿Hay plazo forzoso?</span><i class="ti ti-plus"></i></summary>
-        <div class="lp-faq-answer">No. En Bait no hay plazo forzoso.</div>
-      </details>
-
-      <details class="lp-faq-item">
-        <summary><span class="q">Cobertura</span><i class="ti ti-plus"></i></summary>
-        <div class="lp-faq-answer">Tenemos cobertura nacional. Consulta la disponibilidad en tu zona en <a
-            href="https://mibait.com/cobertura" target="_blank" rel="noopener">mibait.com/cobertura</a>.</div>
-      </details>
-
-      <details class="lp-faq-item">
-        <summary><span class="q">¿Dónde pago mi factura?</span><i class="ti ti-plus"></i></summary>
-        <div class="lp-faq-answer">Puedes pagar en Walmart, Bodega Aurrerá y Sam’s Club, o en línea desde <a
-            href="https://mibait.com" target="_blank" rel="noopener">MiBait.com</a>.</div>
-      </details>
-
-      <details class="lp-faq-item">
-        <summary><span class="q">Redes sociales incluidas</span><i class="ti ti-plus"></i></summary>
-        <div class="lp-faq-answer">WhatsApp, Facebook, Instagram, X, Messenger, Snapchat y Telegram ilimitados.</div>
-      </details>
-
-      <details class="lp-faq-item">
-        <summary><span class="q">Atención a clientes</span><i class="ti ti-plus"></i></summary>
-        <div class="lp-faq-answer"><strong>800 288 2248</strong> · <strong>*282</strong> desde BAIT · <a
-            href="mailto:soporte@mibait.com">soporte@mibait.com</a></div>
-      </details>
-
-      <details class="lp-faq-item">
-        <summary><span class="q">¿Cómo unirse a Bait?</span><i class="ti ti-plus"></i></summary>
-        <div class="lp-faq-answer">Envíanos tu número por mensaje directo o regístrate en esta landing page.</div>
-      </details>
-    </div>
-  </div>
-
-  <!-- ══ FINAL CTA ══ -->
-  <div class="lp-final reveal">
-    <h2>Cámbiate hoy. Paga menos mañana.</h2>
-    <p>38 GB + Sam's Club gratis por solo $199/mes</p>
-    <button onclick="lpScrollToForm()">Quiero portar mi número →</button>
-  </div>
-
-  <!-- ══ FOOTER LEGAL ══ -->
-  <footer class="lp-footer">
-    <span class="lp-footer-terms">Términos y condiciones</span>
-    <span class="lp-footer-brand">LID MARKETING 2026</span>
-  </footer>
-
-</div><!-- /lp-wrap -->
-
-<script>
-  window.lpScrollToForm = function () {
-    var hero = document.getElementById('lp-hero');
-    var form = document.getElementById('lp-form');
-    if (hero) hero.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    if (form) {
-      setTimeout(function () {
-        form.classList.add('pulsing');
-        setTimeout(function () { form.classList.remove('pulsing'); }, 2000);
-      }, 500);
+    .lp-form-mini .ttl {
+      font-size: 13px;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 2px;
+      color: #000;
+      letter-spacing: -.3px;
     }
-  };
 
-  /* Scroll reveal */
-  (function () {
-    var els = document.querySelectorAll('.reveal');
-    if (!('IntersectionObserver' in window)) {
-      els.forEach(function (el) { el.classList.add('visible'); });
-      return;
+    .lp-form-mini .sttl {
+      font-size: 9px;
+      color: #777;
+      text-align: center;
+      margin-bottom: 14px;
+      font-weight: 500;
     }
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    els.forEach(function (el) { io.observe(el); });
-  })();
-</script>
+
+    .lp-fake-input {
+      height: 34px;
+      background: #F5F5F5;
+      border: 1.5px solid #EBEBEB;
+      border-radius: var(--radius-sm);
+      margin-bottom: 7px;
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+      font-size: 10px;
+      color: #aaa;
+      font-weight: 500;
+      transition: border-color .2s;
+      cursor: text;
+    }
+
+    .lp-fake-input:hover {
+      border-color: #ccc;
+    }
+
+    .lp-fake-input .ti {
+      font-size: 13px;
+      margin-right: 7px;
+      color: #bbb;
+    }
+
+    .lp-form-mini button {
+      width: 100%;
+      background: var(--yellow);
+      color: #000;
+      border: none;
+      padding: 10px;
+      border-radius: var(--radius-sm);
+      font-size: 11px;
+      font-weight: 800;
+      margin-top: 5px;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: .6px;
+      transition: transform var(--ease), box-shadow var(--ease);
+    }
+
+    .lp-form-mini button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(255, 204, 0, .4);
+    }
+
+    .lp-form-pulse.pulsing {
+      animation: pulse-yellow 1s ease-out 2;
+    }
+
+    @keyframes pulse-yellow {
+      0% {
+        box-shadow: 0 0 0 0 rgba(255, 204, 0, .6);
+      }
+
+      100% {
+        box-shadow: 0 0 0 16px rgba(255, 204, 0, 0);
+      }
+    }
+
+    /* ═══════════════════ DIVIDER ═══════════════════ */
+    .lp-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+    }
+
+    /* ═══════════════════ TRUST BAR ═══════════════════ */
+    .lp-trust {
+      background: var(--bg2);
+      padding: 16px 28px;
+      display: flex;
+      justify-content: space-around;
+      gap: 10px;
+      width: 100%;
+      max-width: var(--content-max);
+      margin-inline: auto;
+    }
+
+    .lp-trust-item {
+      text-align: center;
+      flex: 1;
+    }
+
+    .lp-trust-item .n {
+      color: var(--yellow);
+      font-size: 20px;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -.5px;
+    }
+
+    .lp-trust-item .l {
+      color: var(--muted);
+      font-size: 8.5px;
+      margin-top: 3px;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    /* ═══════════════════ SECTIONS ═══════════════════ */
+    .lp-section {
+      padding: clamp(28px, 3vw, 84px);
+      border-top: 1px solid var(--border);
+      position: relative;
+      width: 100%;
+      max-width: var(--content-max);
+      margin-inline: auto;
+    }
+
+    .lp-secnum {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      font-size: 9px;
+      color: #3a3a3a;
+      letter-spacing: 1px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .lp-tag {
+      display: inline-block;
+      background: var(--yellow-dim);
+      color: var(--yellow);
+      font-size: 9px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .lp-h2 {
+      color: var(--text);
+      font-size: 16px;
+      font-weight: 700;
+      margin: 0 0 14px;
+      letter-spacing: -.3px;
+    }
+
+    /* ═══════════════════ BENEFIT CARDS ═══════════════════ */
+    .lp-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .lp-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px;
+      transition: border-color var(--ease), transform var(--ease);
+    }
+
+    .lp-card:hover {
+      border-color: rgba(255, 204, 0, .22);
+      transform: translateY(-2px);
+    }
+
+    .lp-card .ic {
+      width: 52px;
+      height: 52px;
+      border-radius: 15px;
+      background: rgba(255, 204, 0, .16);
+      color: var(--yellow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+      font-size: 26px;
+      box-shadow: inset 0 0 0 1px rgba(255, 204, 0, .14), 0 8px 24px rgba(255, 204, 0, .08);
+    }
+
+    .lp-card .t {
+      color: var(--text);
+      font-size: clamp(15px, 1.3vw, 20px);
+      font-weight: 800;
+      margin-bottom: 7px;
+    }
+
+    .lp-card .d {
+      color: var(--muted);
+      font-size: clamp(13px, 1vw, 16px);
+      line-height: 1.55;
+    }
+
+    /* ═══════════════════ SAM'S ═══════════════════ */
+    .lp-sams {
+      background:
+        radial-gradient(circle at 84% 14%, rgba(255, 255, 255, .2), transparent 28%),
+        linear-gradient(135deg, #00143d 0%, #003ec2 58%, #0072ef 100%);
+      border-radius: var(--radius);
+      padding: clamp(28px, 3vw, 80px);
+      display: flex;
+      gap: clamp(24px, 3vw, 70px);
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, .08);
+      min-height: 210px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 28px 90px rgba(0, 58, 190, .3);
+    }
+
+    .lp-sams::after {
+      content: "";
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      right: -105px;
+      bottom: -205px;
+      border: 30px solid rgba(255, 255, 255, .08);
+      transform: rotate(45deg);
+      pointer-events: none;
+    }
+
+    .lp-sams-badge {
+      background: #fff;
+      color: #0033a0;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      font-weight: 800;
+      text-align: center;
+      flex-shrink: 0;
+      line-height: 1.2;
+    }
+
+    .lp-sams-text {
+      flex: 1;
+    }
+
+    .lp-sams-text h4 {
+      color: #fff;
+      font-size: clamp(24px, 2.2vw, 62px);
+      margin-bottom: 10px;
+      font-weight: 950;
+      line-height: 1.02;
+      letter-spacing: -1.5px;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, #fff 0%, #fff 36%, #ffdc52 50%, #fff 64%, #fff 100%);
+      background-size: 220% auto;
+      color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+      animation: sams-shine 4s linear infinite, sams-float 3.2s ease-in-out infinite;
+      transform-origin: left center;
+    }
+
+    @keyframes sams-shine {
+      to {
+        background-position: -220% center;
+      }
+    }
+
+    @keyframes sams-float {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-4px);
+      }
+    }
+
+    .lp-sams-text p {
+      color: rgba(255, 255, 255, .7);
+      font-size: clamp(13px, 1vw, 26px);
+      line-height: 1.5;
+    }
+
+    .lp-sams-text .val {
+      color: var(--yellow);
+      font-weight: 700;
+    }
+
+    .lp-sams-cta {
+      background: var(--yellow);
+      color: #000;
+      border: none;
+      min-width: 220px;
+      min-height: 50px;
+      padding: 14px 24px;
+      border-radius: 12px;
+      font-size: clamp(12px, 1vw, 15px);
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      flex-shrink: 0;
+      white-space: nowrap;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      transition: transform var(--ease), box-shadow var(--ease);
+      position: relative;
+      z-index: 1;
+      isolation: isolate;
+      overflow: hidden;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, .22);
+      text-decoration: none;
+      --cta-pulse: rgba(255, 204, 0, .38);
+      animation: lp-soft-pulse 2.8s 1.15s ease-in-out infinite;
+    }
+
+    .lp-sams-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(255, 204, 0, .3);
+    }
+
+    /* ═══════════════════ COMBO ═══════════════════ */
+    .lp-combo {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .lp-combo-block {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+    }
+
+    .lp-combo-block .head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .lp-combo-block .head .ti {
+      color: var(--yellow);
+      font-size: 16px;
+    }
+
+    .lp-combo-block .head .t {
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .lp-combo-cov-text {
+      color: #bbb;
+      font-size: 11px;
+      line-height: 1.6;
+    }
+
+    .lp-combo-cov-text strong {
+      color: var(--yellow);
+    }
+
+    .lp-combo-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .lp-combo-step {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .lp-combo-step .num {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--yellow);
+      color: #000;
+      font-size: 9px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .lp-combo-step .txt {
+      color: #ddd;
+      font-size: 11px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .lp-combo-step .txt small {
+      color: var(--muted);
+      font-size: 9px;
+      font-weight: 400;
+      display: block;
+    }
+
+    /* ═══════════════════ REASONS ═══════════════════ */
+    .lp-reasons {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .lp-reason {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      transition: border-color var(--ease);
+    }
+
+    .lp-reason:hover {
+      border-color: rgba(255, 204, 0, .2);
+    }
+
+    .lp-reason .ic {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: var(--yellow-dim);
+      color: var(--yellow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      flex-shrink: 0;
+    }
+
+    .lp-reason .body .t {
+      color: var(--text);
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+
+    .lp-reason .body .d {
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.5;
+    }
+
+    .lp-reason .body .d strong {
+      color: var(--yellow);
+    }
+
+    /* ═══════════════════ FAQ ═══════════════════ */
+    .lp-faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      align-items: start;
+    }
+
+    .lp-faq-item {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      cursor: pointer;
+      transition: border-color var(--ease), background var(--ease), transform var(--ease), box-shadow var(--ease);
+    }
+
+    .lp-faq-item:hover {
+      border-color: rgba(255, 204, 0, .25);
+      background: #1a1a1a;
+      transform: translateY(-2px);
+    }
+
+    .lp-faq-item[open] {
+      border-color: rgba(255, 204, 0, .45);
+      background: #191919;
+      box-shadow: 0 14px 35px rgba(0, 0, 0, .24);
+    }
+
+    .lp-faq-item summary {
+      list-style: none;
+      padding: 16px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .lp-faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .lp-faq-item .q {
+      color: #f0f0f0;
+      font-size: 12px;
+      font-weight: 750;
+      line-height: 1.4;
+    }
+
+    .lp-faq-item .ti {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: var(--yellow-dim);
+      color: var(--yellow);
+      font-size: 15px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      transition: transform .3s ease, background .3s ease;
+    }
+
+    .lp-faq-item[open] .ti {
+      transform: rotate(45deg);
+      background: var(--yellow);
+      color: #000;
+    }
+
+    .lp-faq-answer {
+      color: #aaa;
+      font-size: 11px;
+      line-height: 1.65;
+      padding: 0 18px 18px;
+      animation: faq-answer-in .35s ease both;
+    }
+
+    .lp-faq-answer strong {
+      color: var(--yellow);
+    }
+
+    .lp-faq-answer ul {
+      padding-left: 18px;
+      margin-top: 6px;
+    }
+
+    .lp-faq-answer a {
+      color: var(--yellow);
+      text-decoration: none;
+    }
+
+    @keyframes faq-answer-in {
+      from {
+        opacity: 0;
+        transform: translateY(-8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ═══════════════════ FINAL CTA ═══════════════════ */
+    .lp-final {
+      background: var(--yellow);
+      padding: 28px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .lp-final::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 50% 100%, rgba(0, 0, 0, .08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .lp-final h2 {
+      color: #000;
+      font-size: clamp(22px, 4vw, 38px);
+      font-weight: 900;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: -.4px;
+      position: relative;
+    }
+
+    .lp-final p {
+      color: rgba(0, 0, 0, .65);
+      font-size: clamp(13px, 1.6vw, 18px);
+      margin-bottom: 16px;
+      font-weight: 600;
+      position: relative;
+    }
+
+    .lp-final button {
+      background: #000;
+      color: var(--yellow);
+      border: none;
+      min-width: 260px;
+      min-height: 52px;
+      padding: 15px 30px;
+      border-radius: 12px;
+      font-size: clamp(13px, 1.2vw, 16px);
+      font-weight: 800;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      position: relative;
+      transition: transform var(--ease), box-shadow var(--ease);
+      isolation: isolate;
+      overflow: hidden;
+      --cta-pulse: rgba(0, 0, 0, .25);
+      animation: lp-soft-pulse 2.8s 1.4s ease-in-out infinite;
+    }
+
+    .lp-final button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .3);
+    }
+
+    /* ═══════════════════ FOOTER ═══════════════════ */
+    .lp-footer {
+      background: #050505;
+      border-top: 1px solid var(--border);
+      padding: 20px clamp(20px, 3vw, 90px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      color: #777;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .35px;
+      width: 100%;
+      max-width: var(--content-max);
+      margin-inline: auto;
+    }
+
+    .lp-footer-terms {
+      color: #b5b5b5;
+    }
+
+    .lp-footer-brand {
+      color: var(--yellow);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* ═══════════════════ FLOATING WHATSAPP ═══════════════════ */
+    .lp-wa-float {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      width: 54px;
+      height: 54px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 24px rgba(37, 211, 102, .5);
+      cursor: pointer;
+      z-index: 9999;
+      transition: transform var(--ease), box-shadow var(--ease);
+      animation: wa-soft-pulse 2.8s ease-in-out infinite;
+      text-decoration: none;
+    }
+
+    .lp-wa-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 36px rgba(37, 211, 102, .65);
+      animation: none;
+    }
+
+    .lp-wa-float .ti {
+      color: #fff;
+      font-size: 28px;
+    }
+
+    .lp-wa-float::after {
+      content: "";
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 2px solid #25D366;
+      animation: ring-pulse 2.8s .35s ease-out infinite;
+      opacity: 0;
+    }
+
+    @keyframes wa-soft-pulse {
+
+      0%,
+      100% {
+        box-shadow: 0 6px 22px rgba(37, 211, 102, .42);
+      }
+
+      50% {
+        box-shadow: 0 8px 32px rgba(37, 211, 102, .72);
+      }
+    }
+
+    @keyframes ring-pulse {
+      0% {
+        transform: scale(1);
+        opacity: .7;
+      }
+
+      100% {
+        transform: scale(1.55);
+        opacity: 0;
+      }
+    }
+
+    /* ═══════════════════ SCROLL REVEAL ═══════════════════ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .55s var(--ease), transform .55s var(--ease);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ═══════════════════ RESPONSIVE ═══════════════════ */
+    @media (min-width: 1100px) {
+      .lp-promo-title {
+        font-size: 48px;
+      }
+
+      .lp-promo-subtitle {
+        font-size: 16px;
+        margin-bottom: 18px;
+      }
+
+      .lp-promo-box-black,
+      .lp-promo-box-red,
+      .lp-commercial-extras,
+      .lp-cta-group {
+        max-width: 480px;
+      }
+
+      .lp-form-mini {
+        padding: 28px 24px;
+      }
+
+      .lp-form-mini .ttl {
+        font-size: 19px;
+      }
+
+      .lp-fake-input {
+        height: 44px;
+        font-size: 12px;
+      }
+
+      .lp-form-mini button {
+        padding: 14px;
+        font-size: 12px;
+      }
+
+      .lp-h2 {
+        font-size: clamp(24px, 1.6vw, 46px);
+        margin-bottom: 24px;
+      }
+
+      .lp-card,
+      .lp-reason,
+      .lp-combo-block {
+        padding: clamp(22px, 1.5vw, 40px);
+      }
+
+      .lp-sams-badge {
+        width: clamp(100px, 8vw, 190px);
+        height: clamp(100px, 8vw, 190px);
+        font-size: clamp(15px, 1.2vw, 29px);
+        box-shadow: 0 16px 38px rgba(0, 0, 0, .25);
+      }
+
+      .lp-sams-cta {
+        padding: clamp(15px, 1.2vw, 25px) clamp(22px, 1.8vw, 42px);
+        font-size: clamp(12px, .85vw, 20px);
+      }
+
+      .lp-faq-item .q {
+        font-size: clamp(13px, .9vw, 21px);
+      }
+
+      .lp-faq-answer {
+        font-size: clamp(12px, .78vw, 18px);
+      }
+    }
+
+    @media (max-width: 960px) {
+      .lp-hero {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        padding: 22px 16px 0;
+        min-height: unset;
+      }
+
+      .lp-offer {
+        padding-bottom: 0;
+        order: 1;
+        align-self: auto;
+      }
+
+      .lp-commercial-terms {
+        font-size: 10px;
+      }
+
+      .lp-model {
+        height: 260px;
+        order: 2;
+      }
+
+      .lp-form-mini {
+        margin-bottom: 22px;
+        order: 3;
+        align-self: auto;
+      }
+
+      .lp-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .lp-combo {
+        grid-template-columns: 1fr;
+      }
+
+      .lp-reasons {
+        grid-template-columns: 1fr;
+      }
+
+      .lp-faq-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .lp-trust {
+        flex-wrap: wrap;
+      }
+
+      .lp-trust-item {
+        min-width: 40%;
+      }
+
+      .lp-sams {
+        flex-direction: column;
+        text-align: center;
+        min-height: unset;
+      }
+
+      .lp-cta-group {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        max-width: 480px;
+      }
+
+      .lp-offer,
+      .lp-form-mini {
+        width: 100%;
+        max-width: 600px;
+        margin-inline: auto;
+      }
+
+      .lp-cta-pri,
+      .lp-cta-wa,
+      .lp-sams-cta,
+      .lp-final button {
+        width: 100%;
+        max-width: 420px;
+      }
+
+      .lp-wa-float {
+        bottom: 16px;
+        right: 16px;
+        width: 48px;
+        height: 48px;
+      }
+
+      .lp-wa-float .ti {
+        font-size: 24px;
+      }
+
+      .lp-footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 18px 16px;
+        gap: 8px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .lp-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .lp-hero {
+        padding: 18px 12px 0;
+      }
+
+      .lp-section {
+        padding: 18px 14px;
+      }
+
+      .lp-headline .big {
+        font-size: 16px;
+      }
+
+      .lp-commercial-highlights {
+        grid-template-columns: 1.4fr 1fr;
+      }
+
+      .lp-duration-card .during {
+        font-size: 18px;
+      }
+
+      .lp-duration-card strong {
+        font-size: 32px;
+      }
+
+      .lp-store {
+        font-size: 8px;
+      }
+    }
+
+    @media (max-width: 340px) {
+      .lp-commercial-highlights {
+        grid-template-columns: 1fr;
+      }
+
+      .lp-store-list {
+        grid-template-columns: 1fr;
+      }
+
+      .lp-promo-box-black .item-right .price-new,
+      .lp-promo-box-red .content-left .huge-gb {
+        font-size: 46px;
+      }
+
+      .lp-final button {
+        min-width: 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══ FLOATING WHATSAPP ══ -->
+  <a class="lp-wa-float"
+    href="https://api.whatsapp.com/send/?phone=525549547446&amp;text&amp;type=phone_number&amp;app_absent=0"
+    target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+    <i class="ti ti-brand-whatsapp"></i>
+  </a>
+
+  <div class="lp-wrap">
+
+    <!-- ══════════════ HERO ══════════════ -->
+    <div class="lp-hero" id="lp-hero">
+
+      <!-- COL 1: OFERTA -->
+      <div class="lp-offer">
+        <h2 class="lp-promo-title">POSPAGO</h2>
+        <p class="lp-promo-subtitle">es un plan con libertad total.</p>
+
+        <!-- Caja de precio: de $249 a $199 mensuales -->
+        <div class="lp-promo-box-black">
+          <div class="item-left">
+            <span class="de">de</span>
+            <span class="price-old">$249</span>
+          </div>
+          <div class="item-mid">a</div>
+          <div class="item-right">
+            <span class="price-new">$199</span>
+            <span class="label-mensual">mensuales</span>
+          </div>
+        </div>
+
+        <!-- Caja Roja: Obtén 14 GB, 38 GB, ilimitadas con redes sociales -->
+        <div class="lp-promo-box-red">
+          <div class="content-left">
+            <span class="obten">Obtén <span class="strike-gb">14 GB</span></span>
+            <span class="huge-gb">38 GB</span>
+            <span class="info-sub">Llamadas y SMS incluidos en México.<br>En EUA y Canadá: 750 min y 500 SMS.</span>
+          </div>
+          <div class="content-right">
+            <div class="lp-social-icons">
+              <div class="lp-social-row">
+                <span class="lp-social-circle wa"><i class="ti ti-brand-whatsapp"></i></span>
+                <span class="lp-social-circle tg"><i class="ti ti-brand-telegram"></i></span>
+                <span class="lp-social-circle fb"><i class="ti ti-brand-facebook"></i></span>
+                <span class="lp-social-circle ms"><i class="ti ti-brand-messenger"></i></span>
+              </div>
+              <div class="lp-social-row">
+                <span class="lp-social-circle x"><i class="ti ti-brand-x"></i></span>
+                <span class="lp-social-circle ig"><i class="ti ti-brand-instagram"></i></span>
+                <span class="lp-social-circle sc"><i class="ti ti-brand-snapchat"></i></span>
+              </div>
+            </div>
+            <span class="lp-ilimitadas-text">ilimitadas</span>
+          </div>
+        </div>
+
+        <div class="lp-commercial-extras">
+          <p class="lp-commercial-terms">
+            Este plan cuenta con pago recurrente mes a mes, sin plazos forzosos. El pago se realiza 30 días después de
+            la activación. Puedes pagar en cajas de Walmart, Bodega Aurrerá o Sam’s Club indicando tu plan pospago y
+            número de teléfono. <strong>NO APLICA PARA RECARGAS.</strong>
+          </p>
+
+          <div class="lp-commercial-highlights">
+            <div class="lp-duration-card">
+              <span class="during">durante</span>
+              <strong>12 meses</strong>
+            </div>
+            <div class="lp-membership-card">
+              <span class="includes">Incluye:</span>
+              <img class="lp-membership-image" src="assets/images/membresia-sams.png"
+                alt="Membresía Sam's Club incluida" onerror="this.style.visibility='hidden'">
+            </div>
+          </div>
+
+          <div class="lp-sim-purchase">
+            <div class="lp-sim-price">Obtén tu SIM <strong>por $95</strong> en</div>
+            <div class="lp-store-list" aria-label="Tiendas participantes">
+              <span class="lp-store lp-store-walmart">
+                <img src="assets/images/logo-walmart.png" alt="Walmart" onerror="this.style.visibility='hidden'">
+              </span>
+              <span class="lp-store lp-store-sams">
+                <img src="assets/images/logo-sams-club.png" alt="Sam's Club" onerror="this.style.visibility='hidden'">
+              </span>
+              <span class="lp-store lp-store-aurrera">
+                <img src="assets/images/logo-bodega-aurrera.png" alt="Bodega Aurrerá"
+                  onerror="this.style.visibility='hidden'">
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lp-cta-group">
+          <button class="lp-cta-pri" onclick="lpScrollToForm()">
+            <i class="ti ti-arrow-right"></i>Portar ahora
+          </button>
+          <a class="lp-cta-wa"
+            href="https://api.whatsapp.com/send/?phone=525549547446&amp;text&amp;type=phone_number&amp;app_absent=0"
+            target="_blank" rel="noopener">
+            <i class="ti ti-brand-whatsapp"></i>WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- COL 2: MODELO (imagen al centro) -->
+      <div class="lp-model">
+
+        <img src="assets/images/faisy-bait.png"
+          onerror="this.src='data:image/jpeg;base64,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'"
+          alt="Modelo Bait" />
+      </div>
+
+      <!-- COL 3: FORMULARIO -->
+      <div class="lp-form-mini lp-form-pulse" id="lp-form">
+        <div class="step">Paso 1 de 3</div>
+        <div class="ttl">Cámbiate ahora</div>
+        <div class="sttl">Toma menos de 2 minutos</div>
+        <div class="lp-fake-input"><i class="ti ti-phone"></i>Número a portar</div>
+        <div class="lp-fake-input"><i class="ti ti-phone-check"></i>Confirmar número</div>
+        <div class="lp-fake-input"><i class="ti ti-key"></i>NIP (SMS al 051)</div>
+        <button>Continuar →</button>
+      </div>
+
+    </div><!-- /hero -->
+
+    <div class="lp-divider"></div>
+
+    <!-- ══ TRUST BAR ══ -->
+    <div class="lp-trust reveal">
+      <div class="lp-trust-item">
+        <div class="n">+5M</div>
+        <div class="l">Usuarios Bait</div>
+      </div>
+      <div class="lp-trust-item">
+        <div class="n">98%</div>
+        <div class="l">Cobertura</div>
+      </div>
+      <div class="lp-trust-item">
+        <div class="n">4.6★</div>
+        <div class="l">Calificación</div>
+      </div>
+      <div class="lp-trust-item">
+        <div class="n">$0</div>
+        <div class="l">Contratos</div>
+      </div>
+    </div>
+
+    <!-- ══ BENEFICIOS ══ -->
+    <div class="lp-section reveal">
+      <div class="lp-secnum">02 · BENEFICIOS</div>
+      <span class="lp-tag">Qué te llevas</span>
+      <h2 class="lp-h2">Más datos. Menos precio. Cero amarres.</h2>
+      <div class="lp-grid">
+        <div class="lp-card">
+          <div class="ic"><i class="ti ti-wifi"></i></div>
+          <div class="t">38 GB de datos</div>
+          <div class="d">+20 GB extra los primeros 3 meses</div>
+        </div>
+        <div class="lp-card">
+          <div class="ic"><i class="ti ti-brand-instagram"></i></div>
+          <div class="t">Redes ilimitadas</div>
+          <div class="d">WhatsApp, FB, IG, TikTok sin gastar datos</div>
+        </div>
+        <div class="lp-card">
+          <div class="ic"><i class="ti ti-phone"></i></div>
+          <div class="t">Llamadas y SMS</div>
+          <div class="d">Ilimitados en MX, EE.UU. y Canadá</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ SAM'S ══ -->
+    <div class="lp-section reveal">
+      <div class="lp-secnum">03 · BONUS</div>
+      <span class="lp-tag">Exclusivo</span>
+      <h2 class="lp-h2">Llévate la membresía Sam's Club gratis</h2>
+      <div class="lp-sams">
+        <div class="lp-sams-badge">SAM'S<br>CLUB</div>
+        <div class="lp-sams-text">
+          <h4>Membresía Socio gratis por 1 año</h4>
+          <p>Valor real <span class="val">$750 MXN</span>. Precios de mayoreo, gasolinería, farmacia y más.</p>
+        </div>
+        <a class="lp-sams-cta"
+          href="https://api.whatsapp.com/send/?phone=525549547446&amp;text&amp;type=phone_number&amp;app_absent=0"
+          target="_blank" rel="noopener">Cámbiate ahora <i class="ti ti-brand-whatsapp"></i></a>
+      </div>
+    </div>
+
+    <!-- ══ COMBO ══ -->
+    <div class="lp-section reveal">
+      <div class="lp-secnum">04 · PROCESO</div>
+      <div class="lp-combo">
+        <div class="lp-combo-block">
+          <div class="head"><i class="ti ti-shield-check"></i><span class="t">Cobertura nacional</span></div>
+          <p class="lp-combo-cov-text">Operamos sobre <strong>red Bait</strong> con <strong>98% de
+              cobertura</strong>
+            y 4G LTE en todas las ciudades.</p>
+        </div>
+        <div class="lp-combo-block">
+          <div class="head"><i class="ti ti-clock"></i><span class="t">Cámbiate en 3 pasos</span></div>
+          <div class="lp-combo-steps">
+            <div class="lp-combo-step">
+              <div class="num">1</div>
+              <div class="txt">Solicita tu NIP<small>SMS al 051</small></div>
+            </div>
+            <div class="lp-combo-step">
+              <div class="num">2</div>
+              <div class="txt">Llena el formulario<small>Menos de 2 min</small></div>
+            </div>
+            <div class="lp-combo-step">
+              <div class="num">3</div>
+              <div class="txt">Recoge tu SIM<small>Walmart, Bodega o Sam's</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ RAZONES ══ -->
+    <div class="lp-section reveal">
+      <div class="lp-secnum">05 · RAZONES</div>
+      <span class="lp-tag">Por qué cambiarte</span>
+      <h2 class="lp-h2">¿Por qué seguir pagando de más?</h2>
+      <div class="lp-reasons">
+        <div class="lp-reason">
+          <div class="ic"><i class="ti ti-currency-dollar"></i></div>
+          <div class="body">
+            <div class="t">Pagas hasta 50% menos</div>
+            <div class="d">Tu plan actual cuesta el doble por <strong>los mismos GB</strong>.</div>
+          </div>
+        </div>
+        <div class="lp-reason">
+          <div class="ic"><i class="ti ti-lock-open"></i></div>
+          <div class="body">
+            <div class="t">Cero contratos forzosos</div>
+            <div class="d">Te vas <strong>cuando quieras</strong>, sin penalizaciones.</div>
+          </div>
+        </div>
+        <div class="lp-reason">
+          <div class="ic"><i class="ti ti-antenna"></i></div>
+          <div class="body">
+            <div class="t">Misma cobertura nacional</div>
+            <div class="d">Red Bait. <strong>Cero sacrificio</strong> en señal.</div>
+          </div>
+        </div>
+        <div class="lp-reason">
+          <div class="ic"><i class="ti ti-gift"></i></div>
+          <div class="body">
+            <div class="t">Sam's Club gratis incluido</div>
+            <div class="d">Ahorra <strong>$750 al año</strong> solo por cambiarte.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ FAQ ══ -->
+    <div class="lp-section reveal">
+      <div class="lp-secnum">06 · DUDAS</div>
+      <span class="lp-tag">Preguntas frecuentes</span>
+      <h2 class="lp-h2">Todo lo que necesitas saber para unirte a Bait</h2>
+      <div class="lp-faq-grid">
+        <details class="lp-faq-item">
+          <summary><span class="q">¿Qué es la portabilidad?</span><i class="ti ti-plus"></i></summary>
+          <div class="lp-faq-answer">Trae tu número a Bait sin costo y consérvalo.</div>
+        </details>
+
+        <details class="lp-faq-item">
+          <summary><span class="q">¿Cómo hago la portabilidad?</span><i class="ti ti-plus"></i></summary>
+          <div class="lp-faq-answer">Regístrate, recibe tu cupón, recoge tu SIM, espera 24 horas, activa tu línea,
+            instala
+            la app Mi BAIT y listo.</div>
+        </details>
+
+        <details class="lp-faq-item">
+          <summary><span class="q">¿Me quedaré sin línea?</span><i class="ti ti-plus"></i></summary>
+          <div class="lp-faq-answer">Sí. Durante la noche se lleva a cabo el proceso de portabilidad y, al día
+            siguiente,
+            se realiza el reemplazo para que vuelvas a tener línea.</div>
+        </details>
+
+        <details class="lp-faq-item">
+          <summary><span class="q">Beneficios principales</span><i class="ti ti-plus"></i></summary>
+          <div class="lp-faq-answer">
+            <ul>
+              <li>Conservas tu número.</li>
+              <li>7 redes sociales ilimitadas.</li>
+              <li>Promoción por 12 meses.</li>
+              <li>Cobertura nacional.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="lp-faq-item">
+          <summary><span class="q">¿Hay plazo forzoso?</span><i class="ti ti-plus"></i></summary>
+          <div class="lp-faq-answer">No. En Bait no hay plazo forzoso.</div>
+        </details>
+
+        <details class="lp-faq-item">
+          <summary><span class="q">Cobertura</span><i class="ti ti-plus"></i></summary>
+          <div class="lp-faq-answer">Tenemos cobertura nacional. Consulta la disponibilidad en tu zona en <a
+              href="https://mibait.com/cobertura" target="_blank" rel="noopener">mibait.com/cobertura</a>.</div>
+        </details>
+
+        <details class="lp-faq-item">
+          <summary><span class="q">¿Dónde pago mi factura?</span><i class="ti ti-plus"></i></summary>
+          <div class="lp-faq-answer">Puedes pagar en Walmart, Bodega Aurrerá y Sam’s Club, o en línea desde <a
+              href="https://mibait.com" target="_blank" rel="noopener">MiBait.com</a>.</div>
+        </details>
+
+        <details class="lp-faq-item">
+          <summary><span class="q">Redes sociales incluidas</span><i class="ti ti-plus"></i></summary>
+          <div class="lp-faq-answer">WhatsApp, Facebook, Instagram, X, Messenger, Snapchat y Telegram ilimitados.</div>
+        </details>
+
+        <details class="lp-faq-item">
+          <summary><span class="q">Atención a clientes</span><i class="ti ti-plus"></i></summary>
+          <div class="lp-faq-answer"><strong>800 288 2248</strong> · <strong>*282</strong> desde BAIT · <a
+              href="mailto:soporte@mibait.com">soporte@mibait.com</a></div>
+        </details>
+
+        <details class="lp-faq-item">
+          <summary><span class="q">¿Cómo unirse a Bait?</span><i class="ti ti-plus"></i></summary>
+          <div class="lp-faq-answer">Envíanos tu número por mensaje directo o regístrate en esta landing page.</div>
+        </details>
+      </div>
+    </div>
+
+    <!-- ══ FINAL CTA ══ -->
+    <div class="lp-final reveal">
+      <h2>Cámbiate hoy. Paga menos mañana.</h2>
+      <p>38 GB + Sam's Club gratis por solo $199/mes</p>
+      <button onclick="lpScrollToForm()">Quiero portar mi número →</button>
+    </div>
+
+    <!-- ══ FOOTER LEGAL ══ -->
+    <footer class="lp-footer">
+      <span class="lp-footer-terms">Términos y condiciones</span>
+      <span class="lp-footer-brand">LID MARKETING 2026</span>
+    </footer>
+
+  </div><!-- /lp-wrap -->
+
+  <script>
+    window.lpScrollToForm = function () {
+      var hero = document.getElementById('lp-hero');
+      var form = document.getElementById('lp-form');
+      if (hero) hero.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (form) {
+        setTimeout(function () {
+          form.classList.add('pulsing');
+          setTimeout(function () { form.classList.remove('pulsing'); }, 2000);
+        }, 500);
+      }
+    };
+
+    /* Scroll reveal */
+    (function () {
+      var els = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(function (el) { el.classList.add('visible'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      els.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
+</body>
+
+</html>
